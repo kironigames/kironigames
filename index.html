@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kirono Games</title>
+  <style>
+    :root {
+      --glow-red: #ff0033;
+      --dark-bg: #0a0a0a;
+      --accent: #1f1f1f;
+      --font: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: white;
+      font-family: var(--font);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1f1f1f 0%, #2c0a0e 100%);
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 0 20px var(--glow-red);
+    }
+
+    h1 {
+      color: var(--glow-red);
+      font-size: 3rem;
+      text-shadow: 0 0 5px var(--glow-red), 0 0 10px var(--glow-red), 0 0 20px crimson;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: #111;
+      padding: 1rem;
+      border-bottom: 1px solid var(--glow-red);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--glow-red);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      background-color: var(--glow-red);
+      color: black;
+      box-shadow: 0 0 10px var(--glow-red);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    section:nth-child(1) { animation-delay: 0.3s; }
+    section:nth-child(2) { animation-delay: 0.6s; }
+    section:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: var(--glow-red);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a.download {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--glow-red);
+      border: 1px solid var(--glow-red);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a.download:hover {
+      background-color: var(--glow-red);
+      color: black;
+      box-shadow: 0 0 10px var(--glow-red);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: gray;
+      font-size: 0.9rem;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Kirono Games</h1>
+    <p style="font-size: 1rem; color: gray;">Created by Layne Carpenter</p>
+  </header>
+
+  <nav>
+    <a href="#games">Games</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="games">
+      <h2>Games</h2>
+      <p>Explore anime-inspired indie games designed to thrill and immerse. Check out our latest release:</p>
+      <a class="download" href="#">Play Now</a>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Kirono Games is led by Layne Carpenter, crafting dark fantasy and action-packed experiences through unique storytelling and game design. Passion and imagination fuel everything we create.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Send feedback, collaborations, or fan messages to <a href="mailto:contact@kironogames.com" style="color: var(--glow-red); text-decoration: underline;">contact@kironogames.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Kirono Games. All rights reserved. Designed by Layne Carpenter.</p>
+  </footer>
+</body>
+</html>
