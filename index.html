@@ -6,7 +6,7 @@
   <title>Kirono Games</title>
   <style>
     :root {
-      --glow-red: #ff0033;
+      --primary: #ff0033;
       --dark-bg: #0a0a0a;
       --accent: #1f1f1f;
       --font: 'Poppins', sans-serif;
@@ -32,13 +32,13 @@
       background: linear-gradient(90deg, #1f1f1f 0%, #2c0a0e 100%);
       padding: 2rem 1rem;
       text-align: center;
-      box-shadow: 0 0 10px var(--glow-red);
+      border-bottom: 2px solid var(--primary);
     }
 
     h1 {
-      color: var(--glow-red);
+      color: var(--primary);
       font-size: 3rem;
-      text-shadow: 0 0 5px var(--glow-red);
+      text-shadow: 0 0 3px var(--primary);
     }
 
     nav {
@@ -48,23 +48,20 @@
       gap: 1rem;
       background: #111;
       padding: 1rem;
-      border-bottom: 1px solid var(--glow-red);
     }
 
     nav a {
       color: white;
       text-decoration: none;
       padding: 0.6rem 1.2rem;
-      border: 1px solid var(--glow-red);
+      border: 1px solid var(--primary);
       border-radius: 10px;
       transition: all 0.3s ease;
-      position: relative;
     }
 
     nav a:hover {
-      background-color: var(--glow-red);
+      background-color: var(--primary);
       color: black;
-      box-shadow: 0 0 5px var(--glow-red);
     }
 
     main {
@@ -81,7 +78,7 @@
       background: #1a1a1a;
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255, 0, 51, 0.2);
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.15);
       opacity: 0;
       transform: translateY(20px);
       animation: fadeUp 0.8s ease forwards;
@@ -90,7 +87,7 @@
 
     section:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
     }
 
     section:nth-child(1) { animation-delay: 0.3s; }
@@ -105,7 +102,7 @@
     }
 
     h2 {
-      color: var(--glow-red);
+      color: var(--primary);
       margin-bottom: 1rem;
       font-size: 1.6rem;
     }
@@ -118,8 +115,8 @@
     a.download {
       display: inline-block;
       margin-top: 1rem;
-      color: var(--glow-red);
-      border: 1px solid var(--glow-red);
+      color: var(--primary);
+      border: 1px solid var(--primary);
       padding: 0.5rem 1rem;
       border-radius: 8px;
       text-decoration: none;
@@ -127,9 +124,8 @@
     }
 
     a.download:hover {
-      background-color: var(--glow-red);
+      background-color: var(--primary);
       color: black;
-      box-shadow: 0 0 5px var(--glow-red);
     }
 
     footer {
@@ -168,7 +164,7 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Send feedback, collaborations, or fan messages to <a href="mailto:contact@kironogames.com" style="color: var(--glow-red); text-decoration: underline;">contact@kironogames.com</a></p>
+      <p>Send feedback, collaborations, or fan messages to <a href="mailto:contact@kironogames.com" style="color: var(--primary); text-decoration: underline;">contact@kironogames.com</a></p>
     </section>
   </main>
 
