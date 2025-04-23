@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kirono Games</title>
   <style>
     :root {
@@ -32,13 +32,13 @@
       background: linear-gradient(90deg, #1f1f1f 0%, #2c0a0e 100%);
       padding: 2rem 1rem;
       text-align: center;
-      box-shadow: 0 0 20px var(--glow-red);
+      box-shadow: 0 0 10px var(--glow-red);
     }
 
     h1 {
       color: var(--glow-red);
       font-size: 3rem;
-      text-shadow: 0 0 5px var(--glow-red), 0 0 10px var(--glow-red), 0 0 20px crimson;
+      text-shadow: 0 0 5px var(--glow-red);
     }
 
     nav {
@@ -64,7 +64,7 @@
     nav a:hover {
       background-color: var(--glow-red);
       color: black;
-      box-shadow: 0 0 10px var(--glow-red);
+      box-shadow: 0 0 5px var(--glow-red);
     }
 
     main {
@@ -81,10 +81,16 @@
       background: #1a1a1a;
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.2);
       opacity: 0;
       transform: translateY(20px);
       animation: fadeUp 0.8s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
     }
 
     section:nth-child(1) { animation-delay: 0.3s; }
@@ -123,7 +129,7 @@
     a.download:hover {
       background-color: var(--glow-red);
       color: black;
-      box-shadow: 0 0 10px var(--glow-red);
+      box-shadow: 0 0 5px var(--glow-red);
     }
 
     footer {
