@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - KironiGames</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KironiGames</title>
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #f1f1f1;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0c0c0c;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    header, footer {
-      background-color: #1a1a1a;
-      padding: 1em;
+
+    header {
+      width: 100%;
+      padding: 20px;
+      background: #1a1a1a;
       text-align: center;
-      box-shadow: 0 0 10px #00f0ff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #00ffff;
+    }
+
     nav ul {
       list-style: none;
       padding: 0;
       display: flex;
       justify-content: center;
-      gap: 1em;
+      gap: 30px;
+      margin-top: 10px;
     }
+
     nav a {
-      color: #00f0ff;
       text-decoration: none;
-      font-weight: bold;
+      color: white;
+      padding: 10px 20px;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      transition: all 0.3s ease;
     }
+
     nav a:hover {
-      text-shadow: 0 0 10px #00f0ff;
+      background-color: #00ffff;
+      color: #0c0c0c;
+      transform: scale(1.1);
     }
+
     main {
-      padding: 2em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1em;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 50px;
+      width: 100%;
+      max-width: 1000px;
     }
-    section {
-      background: #1f1f1f;
-      border: 2px solid #00f0ff;
-      padding: 2em;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 600px;
-      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    .game-box {
+      background: #1a1a1a;
+      border: 2px solid #00ffff;
+      padding: 30px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
     }
-    section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px #00f0ff;
+
+    .game-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
     }
-    a {
-      color: #00f0ff;
+
+    footer {
+      padding: 20px;
+      background: #1a1a1a;
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
     }
   </style>
 </head>
@@ -72,11 +98,14 @@
   </header>
 
   <main>
-    <section>
-      <h2>About Us</h2>
-      <p>Welcome to KironiGames — the home of story-driven adventures and creative gaming experiences. We’re passionate developers bringing fantasy worlds to life, one line of code at a time.</p>
-      <p>Our games are made using powerful tools like <a href="https://unity.com" target="_blank">Unity</a> for immersive 2D and 3D experiences.</p>
-    </section>
+    <div class="game-box">
+      <h2>Nightfall RPG</h2>
+      <p>A dark story-driven action RPG built with Unity. Explore cursed dreams and awaken powers with Renji.</p>
+    </div>
+    <div class="game-box">
+      <h2>Shigarasu Trials</h2>
+      <p>A survival game testing your skills against nightmare-born enemies. Also developed with Unity.</p>
+    </div>
   </main>
 
   <footer>
