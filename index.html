@@ -4,96 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - KironiGames</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      background-color: #0a0a0a;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
     }
 
     header {
       background-color: #1a1a1a;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(255, 0, 0, 0.4);
+      padding: 1em;
+      text-align: center;
     }
 
     header h1 {
-      color: #ff2e2e;
-      font-size: 2rem;
-      text-shadow: 0 0 10px #ff2e2e;
+      color: #ff1a1a;
+      text-shadow: 0 0 10px #ff1a1a;
     }
 
     nav ul {
       list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
     }
 
-    nav ul li a {
+    nav a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #ff2e2e;
     }
 
     main {
-      padding: 3rem 2rem;
+      padding: 2em;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    section {
-      background-color: #1f1f1f;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-      max-width: 800px;
-      text-align: center;
-      margin-bottom: 3rem;
+      justify-content: space-around;
     }
 
     .glow-box {
-      width: 300px;
-      height: 60px;
-      margin: 1rem auto;
-      background-color: #2a2a2a;
-      border: 2px solid #ff2e2e;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      background-color: #1a1a1a;
+      border: 1px solid #ff1a1a;
+      box-shadow: 0 0 15px rgba(255, 26, 26, 0.3);
+      padding: 2em;
+      width: 30%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
 
     .glow-box:hover {
-      transform: translateX(30px) scaleX(1.2);
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 26, 26, 0.6);
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1em;
       background-color: #1a1a1a;
-      box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.2);
-    }
-
-    a.unity-link {
-      color: #ff2e2e;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 1rem;
+      margin-top: 2em;
     }
   </style>
 </head>
@@ -110,14 +78,18 @@
   </header>
 
   <main>
-    <section>
-      <h2>About Us</h2>
-      <p>Welcome to KironiGames — the home of story-driven adventures and creative gaming experiences. We’re passionate developers bringing fantasy worlds to life, one line of code at a time.</p>
-      <a href="https://unity.com/" class="unity-link" target="_blank">Powered by Unity</a>
-    </section>
-    <div class="glow-box"></div>
-    <div class="glow-box"></div>
-    <div class="glow-box"></div>
+    <div class="glow-box">
+      <h2>About</h2>
+      <p>We are a team of passionate developers creating immersive story-driven RPGs for everyone.</p>
+    </div>
+    <div class="glow-box">
+      <h2>Contact Info</h2>
+      <p>Email: contact@kironigames.com<br>Twitter: @KironiGames</p>
+    </div>
+    <div class="glow-box">
+      <h2>Games Powered by Unity</h2>
+      <p><a href="https://unity.com" style="color: #ff1a1a; text-decoration: underline;">Visit Unity</a></p>
+    </div>
   </main>
 
   <footer>
