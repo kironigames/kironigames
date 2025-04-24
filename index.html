@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KironiGames</title>
+  <title>About - KironiGames</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      background-color: #0d0d0d;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: white;
     }
 
     header {
-      background-color: #111;
-      padding: 20px;
+      background-color: #1a1a1a;
+      padding: 1rem;
       text-align: center;
-      box-shadow: 0 0 20px #00f2ff;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
-      color: #00f2ff;
+      color: #ff3333;
+      text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
     }
 
     nav ul {
@@ -31,57 +30,56 @@
       padding: 0;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
+      gap: 2rem;
+      margin-top: 1rem;
     }
 
-    nav ul li a {
-      text-decoration: none;
+    nav a {
       color: white;
-      font-size: 1.2rem;
-      border: 2px solid transparent;
-      padding: 8px 15px;
-      border-radius: 10px;
-      transition: all 0.3s ease;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
     }
 
-    nav ul li a:hover {
-      border: 2px solid #00f2ff;
-      background-color: #001f33;
-      box-shadow: 0 0 12px #00f2ff;
+    nav a:hover {
+      color: #ff3333;
     }
 
     main {
-      padding: 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 2rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
     .card {
-      background-color: #111;
-      border: 2px solid #00f2ff;
+      background-color: #1a1a1a;
+      border: 2px solid #ff3333;
       border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 20px #00f2ff33;
+      padding: 2rem;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(255, 51, 51, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 30px #00f2ff;
+      box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
     }
 
     footer {
-      background-color: #111;
+      background-color: #1a1a1a;
       text-align: center;
-      padding: 20px;
+      padding: 1rem;
+      margin-top: 2rem;
       font-size: 0.9rem;
-      color: #888;
-      box-shadow: 0 0 20px #00f2ff33;
     }
   </style>
 </head>
@@ -98,13 +96,20 @@
   </header>
 
   <main>
-    <div class="card">
-      <h2>Welcome to KironiGames</h2>
-      <p>This is your world of story-driven, dark fantasy adventures. Start exploring today.</p>
-    </div>
-    <div class="card">
-      <h2>Our Latest Projects</h2>
-      <p>Currently developing "Nightfall RPG" — a demon-fueled journey through broken dreams and cursed power.</p>
+    <h2>About Us</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>Creating immersive worlds that pull you in and never let go.</p>
+      </div>
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>To craft unforgettable experiences through the art of storytelling and gameplay.</p>
+      </div>
+      <div class="card">
+        <h3>Powered by Unity</h3>
+        <p>Explore more at <a href="https://unity.com" target="_blank">Unity.com</a></p>
+      </div>
     </div>
   </main>
 
