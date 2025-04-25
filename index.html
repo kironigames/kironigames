@@ -10,54 +10,98 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #121212;
-      color: #e6e6e6;
-      line-height: 1.6;
+      background: #0b0b0b;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      position: relative;
     }
+
+    /* 🔳 Animated Background Squares */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .square {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 0, 0, 0.1);
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
     header {
-      background-color: #1f1f1f;
+      background-color: #1a0000;
       padding: 1.5em 0;
       text-align: center;
       font-size: 2.5em;
       font-weight: 700;
-      color: #00ffd0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      color: #ff4d4d;
+      box-shadow: 0 2px 12px rgba(255, 0, 0, 0.2);
     }
+
     nav {
-      background-color: #222;
+      background-color: #1f0a0a;
       display: flex;
       justify-content: center;
       padding: 1em 0;
       gap: 2em;
     }
+
     nav a {
-      color: #ccc;
+      color: #ddd;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
       transition: color 0.3s;
     }
+
     nav a:hover {
-      color: #00ffd0;
+      color: #ff4d4d;
     }
+
     main {
-      padding: 3em 2em;
+      padding: 4em 2em;
       text-align: center;
+      z-index: 2;
     }
+
     h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       margin-bottom: 0.5em;
     }
+
     p {
       font-size: 1.2em;
       max-width: 700px;
       margin: 0 auto;
       color: #bbb;
     }
+
     .button {
       display: inline-block;
-      background-color: #00ffd0;
+      background-color: #ff4d4d;
       color: #000;
       padding: 1em 2em;
       font-size: 1em;
@@ -65,35 +109,24 @@
       margin-top: 2em;
       border: none;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 255, 208, 0.3);
-      transition: background-color 0.3s;
+      box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+      transition: background-color 0.3s, transform 0.2s;
       cursor: pointer;
     }
+
     .button:hover {
-      background-color: #00e6b8;
+      background-color: #e64040;
+      transform: scale(1.05);
     }
+
     footer {
-      background-color: #1a1a1a;
-      color: #777;
+      background-color: #1a0000;
+      color: #888;
       text-align: center;
       padding: 1em;
-      margin-top: 4em;
+      margin-top: 5em;
     }
   </style>
 </head>
 <body>
-  <header>KIRONIGAMES</header>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">The Echo Below</a>
-    <a href="#">Store</a>
-    <a href="#">Contact</a>
-  </nav>
-  <main>
-    <h1>Welcome to KironiGames</h1>
-    <p>Experience the shadows and secrets of our worlds. Dive into <strong>The Echo Below</strong> — a cursed tale of echoes, monsters, and forgotten power.</p>
-    <a href="#" class="button">Play Now</a>
-  </main>
-  <footer>© 2025 KironiGames. All rights reserved.</footer>
-</body>
-</html>
+  <!-- 🔳
