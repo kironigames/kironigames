@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>KironiGames | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,10 +13,11 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0b0b0b;
+      background: linear-gradient(120deg, #0b0b0b, #1a0000);
       color: #f0f0f0;
       overflow-x: hidden;
       position: relative;
+      min-height: 100vh;
     }
 
     /* 🔳 Animated Background Squares */
@@ -32,10 +33,9 @@
 
     .square {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: rgba(255, 0, 0, 0.1);
-      animation: float 10s infinite linear;
+      background: rgba(255, 0, 0, 0.07);
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.15);
+      animation: float 12s infinite ease-in-out;
     }
 
     @keyframes float {
@@ -44,7 +44,7 @@
         opacity: 0;
       }
       50% {
-        opacity: 0.3;
+        opacity: 0.25;
       }
       100% {
         transform: translateY(-10vh) rotate(360deg);
@@ -53,21 +53,24 @@
     }
 
     header {
-      background-color: #1a0000;
+      background-color: rgba(26, 0, 0, 0.8);
       padding: 1.5em 0;
       text-align: center;
+      font-family: 'Playfair Display', serif;
       font-size: 2.5em;
-      font-weight: 700;
+      font-weight: 600;
       color: #ff4d4d;
+      backdrop-filter: blur(6px);
       box-shadow: 0 2px 12px rgba(255, 0, 0, 0.2);
     }
 
     nav {
-      background-color: #1f0a0a;
+      background-color: rgba(31, 10, 10, 0.7);
       display: flex;
       justify-content: center;
       padding: 1em 0;
       gap: 2em;
+      backdrop-filter: blur(5px);
     }
 
     nav a {
@@ -84,19 +87,27 @@
     main {
       padding: 4em 2em;
       text-align: center;
-      z-index: 2;
+    }
+
+    .content-box {
+      background: rgba(20, 20, 20, 0.6);
+      border-radius: 15px;
+      padding: 3em;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
     }
 
     h1 {
-      font-size: 2.8em;
+      font-size: 2.5em;
       margin-bottom: 0.5em;
+      font-family: 'Playfair Display', serif;
     }
 
     p {
       font-size: 1.2em;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #bbb;
+      color: #ccc;
     }
 
     .button {
@@ -120,13 +131,47 @@
     }
 
     footer {
-      background-color: #1a0000;
+      background-color: rgba(26, 0, 0, 0.8);
       color: #888;
       text-align: center;
       padding: 1em;
       margin-top: 5em;
+      backdrop-filter: blur(5px);
     }
   </style>
 </head>
 <body>
-  <!-- 🔳
+  <!-- 🔳 Background Squares -->
+  <div class="background"></div>
+
+  <header>KIRONIGAMES</header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">The Echo Below</a>
+    <a href="#">Store</a>
+    <a href="#">Contact</a>
+  </nav>
+  <main>
+    <div class="content-box">
+      <h1>Welcome to KironiGames</h1>
+      <p>Crafted in shadow, forged in mystery. Enter the cursed world of <strong>The Echo Below</strong> and shape your fate.</p>
+      <a href="#" class="button">Play Now</a>
+    </div>
+  </main>
+  <footer>© 2025 KironiGames. All rights reserved.</footer>
+
+  <script>
+    const background = document.querySelector('.background');
+    for (let i = 0; i < 60; i++) {
+      const square = document.createElement('div');
+      square.classList.add('square');
+      const size = 10 + Math.random() * 30;
+      square.style.width = square.style.height = `${size}px`;
+      square.style.left = `${Math.random() * 100}vw`;
+      square.style.animationDuration = `${6 + Math.random() * 8}s`;
+      square.style.opacity = Math.random() * 0.3;
+      background.appendChild(square);
+    }
+  </script>
+</body>
+</html>
