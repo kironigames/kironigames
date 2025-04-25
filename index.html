@@ -20,7 +20,6 @@
       min-height: 100vh;
     }
 
-    /* 🔳 Animated Background Squares */
     .background {
       position: fixed;
       top: 0;
@@ -138,11 +137,29 @@
       margin-top: 5em;
       backdrop-filter: blur(5px);
     }
+
+    /* 🧠 Visitor Counter Styling */
+    #visitor-counter {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 77, 77, 0.1);
+      color: #ff4d4d;
+      padding: 0.5em 1em;
+      font-size: 0.9em;
+      font-family: 'Inter', sans-serif;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
   <!-- 🔳 Background Squares -->
   <div class="background"></div>
+
+  <!-- 🧠 Visitor Counter -->
+  <div id="visitor-counter">Visitors: Loading...</div>
 
   <header>KIRONIGAMES</header>
   <nav>
@@ -151,6 +168,7 @@
     <a href="#">Store</a>
     <a href="#">Contact</a>
   </nav>
+
   <main>
     <div class="content-box">
       <h1>Welcome to KironiGames</h1>
@@ -158,9 +176,11 @@
       <a href="#" class="button">Play Now</a>
     </div>
   </main>
+
   <footer>© 2025 KironiGames. All rights reserved.</footer>
 
   <script>
+    // 🔳 Animate Background Squares
     const background = document.querySelector('.background');
     for (let i = 0; i < 60; i++) {
       const square = document.createElement('div');
@@ -172,6 +192,13 @@
       square.style.opacity = Math.random() * 0.3;
       background.appendChild(square);
     }
+
+    // 🧠 Fetch Visitor Count
+    fetch('https://api.countapi.xyz/hit/kironigames/visits')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`;
+      });
   </script>
 </body>
 </html>
