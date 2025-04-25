@@ -66,9 +66,9 @@
     nav {
       background-color: rgba(31, 10, 10, 0.7);
       display: flex;
-      justify-content: center;
-      padding: 1em 0;
+      align-items: center;
       gap: 2em;
+      padding: 1em 2em;
       backdrop-filter: blur(5px);
     }
 
@@ -81,6 +81,20 @@
 
     nav a:hover {
       color: #ff4d4d;
+    }
+
+    #visitor-counter {
+      margin-left: auto;
+      background: rgba(255, 77, 77, 0.1);
+      color: #ff4d4d;
+      padding: 0.4em 0.8em;
+      font-size: 0.9em;
+      font-family: 'Inter', sans-serif;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 6px rgba(255, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
     }
 
     main {
@@ -137,36 +151,21 @@
       margin-top: 5em;
       backdrop-filter: blur(5px);
     }
-
-    /* 🧠 Visitor Counter Styling */
-    #visitor-counter {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(255, 77, 77, 0.1);
-      color: #ff4d4d;
-      padding: 0.5em 1em;
-      font-size: 0.9em;
-      font-family: 'Inter', sans-serif;
-      border-radius: 8px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.2);
-    }
   </style>
 </head>
 <body>
   <!-- 🔳 Background Squares -->
   <div class="background"></div>
 
-  <!-- 🧠 Visitor Counter -->
-  <div id="visitor-counter">Visitors: Loading...</div>
-
   <header>KIRONIGAMES</header>
+
+  <!-- 🔗 Nav Bar with Visitor Counter -->
   <nav>
     <a href="#">Home</a>
     <a href="#">The Echo Below</a>
     <a href="#">Store</a>
     <a href="#">Contact</a>
+    <div id="visitor-counter">Visitors: Loading...</div>
   </nav>
 
   <main>
