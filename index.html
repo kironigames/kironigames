@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KironiGames | Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -16,8 +17,6 @@
       background: linear-gradient(120deg, #0b0b0b, #1a0000);
       color: #f0f0f0;
       overflow-x: hidden;
-      position: relative;
-      min-height: 100vh;
     }
 
     .background {
@@ -66,8 +65,10 @@
     nav {
       background-color: rgba(31, 10, 10, 0.7);
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 2em;
+      justify-content: center;
+      gap: 1em;
       padding: 1em 2em;
       backdrop-filter: blur(5px);
     }
@@ -84,7 +85,6 @@
     }
 
     #visitor-counter {
-      margin-left: auto;
       background: rgba(255, 77, 77, 0.1);
       color: #ff4d4d;
       padding: 0.4em 0.8em;
@@ -93,8 +93,6 @@
       border-radius: 6px;
       backdrop-filter: blur(4px);
       box-shadow: 0 0 6px rgba(255, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
     }
 
     main {
@@ -105,7 +103,7 @@
     .content-box {
       background: rgba(20, 20, 20, 0.6);
       border-radius: 15px;
-      padding: 3em;
+      padding: 3em 2em;
       max-width: 800px;
       margin: 0 auto;
       backdrop-filter: blur(10px);
@@ -113,7 +111,7 @@
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.3em;
       margin-bottom: 0.5em;
       font-family: 'Playfair Display', serif;
     }
@@ -143,6 +141,24 @@
       transform: scale(1.05);
     }
 
+    .donation-bar {
+      margin-top: 3em;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.2em 1em;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 77, 77, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+      color: #ffbfbf;
+    }
+
+    .donation-bar strong {
+      font-size: 1.1em;
+      color: #fff;
+    }
+
     footer {
       background-color: rgba(26, 0, 0, 0.8);
       color: #888;
@@ -150,6 +166,25 @@
       padding: 1em;
       margin-top: 5em;
       backdrop-filter: blur(5px);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 2em;
+      }
+
+      .content-box {
+        padding: 2em 1.5em;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5em;
+      }
+
+      #visitor-counter {
+        margin-top: 0.5em;
+      }
     }
   </style>
 </head>
@@ -173,34 +208,21 @@
       <h1>Welcome to KironiGames</h1>
       <p>Crafted in shadow, forged in mystery. Enter the cursed world of <strong>The Echo Below</strong> and shape your fate.</p>
       <a href="#" class="button">Play Now</a>
+
+      <!-- 💸 Donation Section -->
+      <div class="donation-bar">
+        <strong>Please donate to bring top-tier games to you</strong>
+        <div id="donation-total">Total Donated: $73.50</div>
+        <a href="https://www.paypal.com/donate" target="_blank" class="button" style="margin-top: 0.5em;">Donate</a>
+      </div>
     </div>
   </main>
 
   <footer>© 2025 KironiGames. All rights reserved.</footer>
 
   <script>
-    // 🔳 Animate Background Squares
+    // 🔳 Background Squares
     const background = document.querySelector('.background');
     for (let i = 0; i < 60; i++) {
       const square = document.createElement('div');
-      square.classList.add('square');
-      const size = 10 + Math.random() * 30;
-      square.style.width = square.style.height = `${size}px`;
-      square.style.left = `${Math.random() * 100}vw`;
-      square.style.animationDuration = `${6 + Math.random() * 8}s`;
-      square.style.opacity = Math.random() * 0.3;
-      background.appendChild(square);
-    }
-
-    // ✅ Working Visitor Count Using CountAPI
-    fetch('https://api.countapi.xyz/update/kironi-games/visits/?amount=1')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`;
-      })
-      .catch(() => {
-        document.getElementById('visitor-counter').innerText = "Visitors: ???";
-      });
-  </script>
-</body>
-</html>
+      square.classList.add('square
