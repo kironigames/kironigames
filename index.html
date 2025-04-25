@@ -192,11 +192,14 @@
       background.appendChild(square);
     }
 
-    // 🧠 Fetch Visitor Count
-    fetch('https://api.countapi.xyz/hit/kironigames/visits')
+    // 🧠 Fetch Visitor Count (free & working)
+    fetch('https://api.countapi.xyz/update/kironigames.com/visits/?amount=1')
       .then(res => res.json())
       .then(data => {
         document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`;
+      })
+      .catch(() => {
+        document.getElementById('visitor-counter').innerText = "Visitors: ???";
       });
   </script>
 </body>
