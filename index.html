@@ -11,243 +11,127 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(120deg, #0b0b0b, #1a0000);
       color: #f0f0f0;
       overflow-x: hidden;
+      line-height: 1.6;
     }
-
     .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1; overflow: hidden;
     }
-
     .square {
       position: absolute;
       background: rgba(255, 0, 0, 0.07);
       box-shadow: 0 0 8px rgba(255, 0, 0, 0.15);
       animation: float 12s infinite ease-in-out;
     }
-
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 0.25;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      50% { opacity: 0.25; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
-
-    header {
-      background-color: rgba(26, 0, 0, 0.8);
-      padding: 1.5em 0;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5em;
-      font-weight: 600;
-      color: #ff4d4d;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 2px 12px rgba(255, 0, 0, 0.2);
+    header { background: rgba(26,0,0,0.8); padding: 1.5em 0; text-align: center;
+      font-family: 'Playfair Display', serif; font-size: 2.5em; font-weight: 600;
+      color: #ff4d4d; backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(255,0,0,0.2);
     }
-
-    nav {
-      background-color: rgba(31, 10, 10, 0.7);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1em;
-      padding: 1em 2em;
+    nav { background: rgba(31,10,10,0.7); display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: center; gap: 1em; padding: 1em 2em;
       backdrop-filter: blur(5px);
     }
-
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      font-weight: bold;
+    nav a { color: #ddd; text-decoration: none; font-weight: bold;
       transition: color 0.3s;
     }
-
-    nav a:hover {
-      color: #ff4d4d;
-    }
-
+    nav a:hover { color: #ff4d4d; }
     #visitor-counter {
-      background: rgba(255, 77, 77, 0.1);
-      color: #ff4d4d;
-      padding: 0.4em 0.8em;
-      font-size: 0.9em;
-      border-radius: 6px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 6px rgba(255, 0, 0, 0.2);
+      background: rgba(255,77,77,0.1); color: #ff4d4d; padding: 0.4em 0.8em;
+      font-size: 0.9em; border-radius: 6px; backdrop-filter: blur(4px);
+      box-shadow: 0 0 6px rgba(255,0,0,0.2);
     }
-
-    main {
-      padding: 4em 2em;
-      text-align: center;
+    main { padding: 4em 2em; text-align: center; }
+    .content-box { background: rgba(20,20,20,0.6); border-radius: 15px;
+      padding: 3em 2em; max-width: 800px; margin: 0 auto;
+      backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(255,0,0,0.1);
+      transition: transform 0.3s;
     }
-
-    .content-box {
-      background: rgba(20, 20, 20, 0.6);
-      border-radius: 15px;
-      padding: 3em 2em;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
-    }
-
-    h1 {
-      font-size: 2.3em;
-      margin-bottom: 0.5em;
-      font-family: 'Playfair Display', serif;
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #ccc;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: #ff4d4d;
-      color: #000;
-      padding: 1em 2em;
-      font-size: 1em;
-      font-weight: bold;
-      margin-top: 2em;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+    .content-box:hover { transform: translateY(-5px); }
+    h1 { font-size: 2.3em; margin-bottom: 0.5em; font-family: 'Playfair Display', serif; }
+    p { font-size: 1.2em; color: #ccc; }
+    .button { display: inline-block; background-color: #ff4d4d; color: #000;
+      padding: 1em 2em; font-size: 1em; font-weight: bold; margin-top: 2em;
+      border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(255,77,77,0.3);
       transition: background-color 0.3s, transform 0.2s;
       cursor: pointer;
     }
-
-    .button:hover {
-      background-color: #e64040;
-      transform: scale(1.05);
+    .button:hover { background-color: #e64040; transform: scale(1.05); }
+    .donation-bar { margin-top: 3em; background: rgba(255,255,255,0.05);
+      padding: 1.2em; border-radius: 12px; border: 1px solid rgba(255,77,77,0.2);
+      color: #ffbfbf; transition: background 0.3s;
     }
-
-    .donation-bar {
-      margin-top: 3em;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1.2em;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 77, 77, 0.2);
-      color: #ffbfbf;
+    .donation-bar:hover { background: rgba(255,255,255,0.1); }
+    .progress-container { position: relative; width: 100%; height: 30px;
+      background: rgba(100,0,0,0.3); border-radius: 20px; margin-top: 1em; overflow: hidden;
     }
-
-    .donation-bar strong {
-      font-size: 1.1em;
-      color: #fff;
-    }
-
-    .progress-container {
-      position: relative;
-      width: 100%;
-      height: 30px;
-      background: rgba(100, 0, 0, 0.3);
-      border-radius: 20px;
-      margin-top: 1em;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
+    .progress-fill { height: 100%; width: 0%;
       background: linear-gradient(135deg, #ff4d4d, #ff9999);
-      border-radius: 20px;
-      animation: fillup 3s ease forwards;
+      border-radius: 20px; animation: fillup 3s ease forwards;
     }
-
-    @keyframes fillup {
-      from {
-        width: 0%;
-      }
-      to {
-        width: var(--fill);
-      }
-    }
-
+    @keyframes fillup { from { width: 0%; } to { width: var(--fill); } }
+    /* Comments */
     .comment-section {
-      margin-top: 3em;
-      text-align: left;
+      margin-top: 3em; text-align: left; background: rgba(30,0,0,0.7);
+      padding: 2em; border-radius: 15px; backdrop-filter: blur(8px);
     }
-    .comment {
-      background: rgba(255, 77, 77, 0.08);
-      padding: 1em;
-      border-radius: 10px;
-      margin-bottom: 1em;
-      position: relative;
-      color: #f0f0f0;
-    }
-    .like-btn {
-      background: none;
-      border: none;
-      color: #ff4d4d;
-      cursor: pointer;
-      font-weight: bold;
-      position: absolute;
-      right: 1em;
-      top: 1em;
+    .comment-section h2 {
+      font-family: 'Playfair Display', serif; margin-bottom: 1em;
+      border-bottom: 1px solid rgba(255,77,77,0.3); padding-bottom: 0.5em;
+      color: #ffb3b3;
     }
     .comment-input textarea {
-      width: 100%;
-      padding: 0.8em;
-      border-radius: 10px;
-      border: none;
-      resize: vertical;
-      font-family: 'Inter', sans-serif;
-      margin-bottom: 0.5em;
+      width: 100%; padding: 0.8em; border-radius: 10px; border: none;
+      resize: vertical; font-family: 'Inter', sans-serif; margin-bottom: 0.5em;
+      background: rgba(255,255,255,0.1); color: #fff;
+      transition: background 0.3s;
+    }
+    .comment-input textarea:focus {
+      background: rgba(255,255,255,0.2); outline: none;
     }
     .comment-input button {
-      padding: 0.6em 1.2em;
-      background: #ff4d4d;
-      border: none;
-      border-radius: 10px;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
+      padding: 0.6em 1.2em; background: #ff4d4d; border: none;
+      border-radius: 10px; color: #000; font-weight: bold; cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
     }
-
-    footer {
-      background-color: rgba(26, 0, 0, 0.8);
-      color: #888;
-      text-align: center;
-      padding: 1em;
-      margin-top: 5em;
-      backdrop-filter: blur(5px);
+    .comment-input button:hover { background: #e64040; transform: scale(1.05); }
+    #commentsContainer { max-height: 300px; overflow-y: auto; padding-right: 0.5em;
+      scrollbar-width: thin; scrollbar-color: rgba(255,77,77,0.4) transparent;
     }
-
+    #commentsContainer::-webkit-scrollbar { width: 6px; }
+    #commentsContainer::-webkit-scrollbar-track { background: transparent; }
+    #commentsContainer::-webkit-scrollbar-thumb { background-color: rgba(255,77,77,0.4); border-radius: 3px; }
+    .comment {
+      background: rgba(255,77,77,0.1); padding: 1em; border-radius: 10px;
+      margin-bottom: 1em; position: relative; color: #f0f0f0;
+      opacity: 0; animation: fadeIn 0.5s forwards;
+    }
+    .comment p { margin-bottom: 0.5em; }
+    .like-btn {
+      background: none; border: none; color: #ff4d4d; cursor: pointer;
+      font-weight: bold; position: absolute; right: 1em; top: 1em;
+      transition: transform 0.2s;
+    }
+    .like-btn:hover { transform: scale(1.2); }
+    @keyframes fadeIn { to { opacity: 1; } }
+    footer { background-color: rgba(26,0,0,0.8); color: #888;
+      text-align: center; padding: 1em; margin-top: 5em; backdrop-filter: blur(5px);
+    }
     @media (max-width: 600px) {
-      header {
-        font-size: 2em;
-      }
-
-      .content-box {
-        padding: 2em 1.5em;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 0.5em;
-      }
-
-      #visitor-counter {
-        margin-top: 0.5em;
-      }
+      header { font-size: 2em; }
+      .content-box { padding: 2em 1.5em; }
+      nav { flex-direction: column; gap: 0.5em; }
+      #visitor-counter { margin-top: 0.5em; }
     }
   </style>
 </head>
@@ -274,7 +158,6 @@
         </div>
         <a href="https://www.paypal.com/donate" target="_blank" class="button" style="margin-top: 1em;">Donate</a>
       </div>
-
       <div class="comment-section">
         <h2>Comments</h2>
         <div class="comment-input">
@@ -285,7 +168,7 @@
       </div>
     </div>
   </main>
-  <footer>© 2025 KironiGames. All rights reserved made a designed by Layne Carpenter.</footer>
+  <footer>© 2025 KironiGames. Crafted by Layne Carpenter.</footer>
   <script>
     const background = document.querySelector('.background');
     for (let i = 0; i < 60; i++) {
@@ -298,24 +181,15 @@
       square.style.opacity = Math.random() * 0.3;
       background.appendChild(square);
     }
-
     fetch('https://api.countapi.xyz/update/kironi-games/visits/?amount=1')
       .then(res => res.json())
-      .then(data => {
-        document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`;
-      })
-      .catch(() => {
-        document.getElementById('visitor-counter').innerText = "Visitors: ???";
-      });
-
-    const goal = 10000.00;
-    const current = 0.00;
+      .then(data => document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`)
+      .catch(() => document.getElementById('visitor-counter').innerText = "Visitors: ???");
+    const goal = 10000.00, current = 0.00;
     const percent = (current / goal) * 100;
     document.getElementById("donation-total").innerText = `Total Donated: ${current.toFixed(2)}`;
     document.getElementById("donation-fill").style.setProperty("--fill", `${percent}%`);
-
     let comments = JSON.parse(localStorage.getItem('comments') || '[]');
-
     function renderComments() {
       const container = document.getElementById('commentsContainer');
       container.innerHTML = '';
@@ -323,30 +197,23 @@
       comments.forEach((comment, index) => {
         const div = document.createElement('div');
         div.className = 'comment';
-        div.innerHTML = `
-          <p>${comment.text}</p>
-          <button class="like-btn" onclick="likeComment(${index})">❤️ ${comment.likes}</button>
-        `;
+        div.innerHTML = `<p>${comment.text}</p><button class="like-btn" onclick="likeComment(${index})">❤️ ${comment.likes}</button>`;
         container.appendChild(div);
       });
     }
-
     function addComment() {
       const text = document.getElementById('commentText').value.trim();
-      if (text) {
-        comments.push({ text, likes: 0 });
+      if (text) { comments.push({ text, likes: 0 });
         localStorage.setItem('comments', JSON.stringify(comments));
         document.getElementById('commentText').value = '';
         renderComments();
       }
     }
-
     function likeComment(index) {
       comments[index].likes++;
       localStorage.setItem('comments', JSON.stringify(comments));
       renderComments();
     }
-
     renderComments();
   </script>
 </body>
