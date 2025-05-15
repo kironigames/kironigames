@@ -12,6 +12,8 @@
       --primary: #ff4d4d;
       --light: #f0f0f0;
       --accent: rgba(255,77,77,0.1);
+      --cursorX: 50%;
+      --cursorY: 50%;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -31,19 +33,12 @@
       border-radius: 50%;
       background: var(--primary);
       pointer-events: none;
+      top: var(--cursorY);
+      left: var(--cursorX);
       transform: translate(-50%, -50%);
-      transition: transform 0.1s ease-out;
+      transition: transform 0.05s ease-out;
       z-index: 1000;
     }
-    /* Mouse tracking */
-    <script>
-      document.addEventListener('mousemove', e => {
-        document.body.style.setProperty('--x', e.clientX + 'px');
-        document.body.style.setProperty('--y', e.clientY + 'px');
-        document.body.style.setProperty('--cursorX', e.clientX + 'px');
-        document.body.style.setProperty('--cursorY', e.clientY + 'px');
-      });
-    </script>
     .background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
     .square { position: absolute; background: var(--accent); box-shadow: 0 0 8px rgba(255,0,0,0.15); animation: float 12s infinite ease-in-out; }
     @keyframes float { 0% { transform: translateY(100vh) rotate(0); opacity: 0; } 50% { opacity: 0.3; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
@@ -125,13 +120,8 @@
       transform: translate(-50%, -50%);
       transition: width 0.5s ease, height 0.5s ease;
     }
-    .button:hover {
-      transform: scale(1.1);
-    }
-    .button:active::after {
-      width: 200px; height: 200px;
-      transition: 0s;
-    }
+    .button:hover { transform: scale(1.1); }
+    .button:active::after { width: 200px; height: 200px; transition: 0s; }
     .donation-bar {
       margin-top: 4em;
       background: rgba(255,255,255,0.08);
@@ -174,5 +164,4 @@
     .comment-input textarea:focus { background: rgba(255,255,255,0.25); outline: none; transform: scale(1.02); }
     .comment-input button {
       padding: 0.8em 1.5em; background: var(--primary); border: none;
-      border-radius: 12px; color: #000; font-weight: bold; cursor: pointer;
-      margin-top: 0.7em; transition: transform 0.2
+      border-radius: 12px; color: #
