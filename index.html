@@ -14,263 +14,77 @@
       --accent: rgba(255,77,77,0.1);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(120deg, var(--bg-dark), var(--bg-red));
-      color: var(--light);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    .background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-    .square { position: absolute; background: var(--accent); box-shadow: 0 0 8px rgba(255,0,0,0.15); animation: float 12s infinite ease-in-out; }
-    @keyframes float { 0% { transform: translateY(100vh) rotate(0); opacity: 0; } 50% { opacity: 0.3; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
-    header, footer, nav, .content-box, .comment-section { transition: all 0.3s ease; }
-    header {
-      background: rgba(26,0,0,0.85);
-      padding: 1.5em 0;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8em;
-      color: var(--primary);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 20px rgba(255,0,0,0.3);
-    }
-    nav {
-      background: rgba(31,10,10,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5em;
-      padding: 1em 2em;
-      backdrop-filter: blur(6px);
-    }
-    nav a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-      padding: 0.5em;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.3s, left 0.3s;
-    }
-    nav a:hover::after { width: 100%; left: 0; }
-    #visitor-counter {
-      background: var(--accent);
-      color: var(--primary);
-      padding: 0.4em 0.8em;
-      border-radius: 6px;
-      font-size: 0.9em;
-      backdrop-filter: blur(5px);
-    }
-    main { padding: 5em 2em; text-align: center; }
-    .content-box {
-      background: rgba(20,20,20,0.7);
-      border-radius: 20px;
-      padding: 4em 3em;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 0 30px rgba(255,0,0,0.2);
-    }
-    .content-box:hover { transform: translateY(-8px) scale(1.02); }
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 0.5em;
-      font-family: 'Playfair Display', serif;
-    }
-    p { font-size: 1.3em; color: #ddd; }
-    .button {
-      position: relative;
-      overflow: hidden;
-      background: var(--primary);
-      color: #000;
-      padding: 1em 2em;
-      font-size: 1.1em;
-      font-weight: bold;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(255,77,77,0.4);
-      cursor: pointer;
-      margin-top: 2em;
-      transition: transform 0.2s;
-    }
-    .button::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255,255,255,0.3);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.5s ease, height 0.5s ease;
-    }
+    body { font-family: 'Inter', sans-serif; overflow: hidden; background: var(--bg-dark); color: var(--light); }
+    canvas#particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+    .background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+    header, nav, main, .content-box, .comment-section, footer { position: relative; z-index: 1; }
+    header { text-align: center; font-family: 'Playfair Display', serif; font-size: 3em; padding: 1em; color: var(--primary); mix-blend-mode: difference; }
+    nav { display: flex; justify-content: center; gap: 2em; padding: 1em; }
+    nav a { color: var(--light); text-decoration: none; font-weight: bold; font-size: 1.1em; }
+    main { display: flex; align-items: center; justify-content: center; height: calc(100vh - 200px); }
+    .content-box { background: rgba(20,20,20,0.8); padding: 2em 3em; border-radius: 20px; box-shadow: 0 0 20px var(--primary); text-align: center; animation: pulse 3s infinite; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+    .button { display: inline-block; margin-top: 1.5em; padding: 1em 2em; background: var(--primary); color: #000; font-weight: bold; border-radius: 12px; box-shadow: 0 5px 15px rgba(255,0,0,0.4); transition: transform 0.2s; }
     .button:hover { transform: scale(1.1); }
-    .button:active::after { width: 200px; height: 200px; transition: 0s; }
-    .donation-bar {
-      margin-top: 4em;
-      background: rgba(255,255,255,0.08);
-      padding: 1.5em;
-      border-radius: 15px;
-      border: 1px solid rgba(255,77,77,0.3);
-      color: #f5d5d5;
-      transition: background 0.3s;
-    }
-    .donation-bar:hover { background: rgba(255,255,255,0.15); }
-    .progress-container { margin-top: 1.2em; height: 30px; background: rgba(100,0,0,0.4); border-radius: 25px; overflow: hidden; }
-    .progress-fill { height: 100%; width: 0%; background: linear-gradient(135deg, #ff4d4d, #ff9999); animation: fillup 3s ease forwards; }
-    @keyframes fillup { from { width: 0; } to { width: var(--fill); } }
-    .comment-section {
-      margin-top: 4em;
-      background: rgba(30,0,0,0.8);
-      padding: 2.5em;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 25px rgba(255,0,0,0.2);
-    }
-    .comment-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8em;
-      color: #ffb3b3;
-      margin-bottom: 1em;
-      position: relative;
-    }
-    .comment-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background: var(--primary);
-    }
-    .comment-input textarea {
-      width: 100%;
-      padding: 1em;
-      border-radius: 12px;
-      border: none;
-      resize: vertical;
-      font-family: 'Inter', sans-serif;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .comment-input textarea:focus { background: rgba(255,255,255,0.25); outline: none; transform: scale(1.02); }
-    .comment-input button {
-      padding: 0.8em 1.5em;
-      background: var(--primary);
-      border: none;
-      border-radius: 12px;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 0.7em;
-      transition: transform 0.2s;
-    }
-    .comment-input button:hover { transform: scale(1.05); }
-    #commentsContainer { max-height: 300px; overflow-y: auto; padding-right: 0.5em; }
-    #commentsContainer::-webkit-scrollbar { width: 6px; }
-    #commentsContainer::-webkit-scrollbar-thumb { background-color: rgba(255,77,77,0.4); border-radius: 3px; }
-    .comment {
-      background: rgba(255,77,77,0.1);
-      padding: 1em;
-      border-radius: 10px;
-      margin-bottom: 1em;
-      position: relative;
-      color: #f0f0f0;
-      opacity: 0;
-      animation: fadeIn 0.5s forwards;
-    }
-    @keyframes fadeIn { to { opacity: 1; } }
-    .like-btn { background: none; border: none; color: var(--primary); cursor: pointer; font-weight: bold; position: absolute; right: 1em; top: 1em; transition: transform 0.2s; }
-    .like-btn:hover { transform: scale(1.2); }
-    footer { background-color: rgba(26,0,0,0.8); color: #888; text-align: center; padding: 1em; margin-top: 5em; backdrop-filter: blur(5px); }
-    @media (max-width: 600px) { header { font-size: 2em; } .content-box { padding: 2em 1.5em; } nav { flex-direction: column; gap: 0.5em; } #visitor-counter { margin-top: 0.5em; } }
+    .comment-section { max-width: 600px; margin: 2em auto; background: rgba(30,0,0,0.9); padding: 2em; border-radius: 20px; }
+    .comment-section h2 { font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 1em; }
+    .comment-input textarea { width: 100%; padding: 1em; border-radius: 10px; border: none; background: rgba(255,255,255,0.1); color: #fff; }
+    .comment-input button { margin-top: 0.5em; padding: 0.8em 1.2em; background: var(--primary); border: none; border-radius: 10px; cursor: pointer; }
+    .comment { background: rgba(255,77,77,0.15); padding: 1em; margin-bottom: 0.5em; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .like-btn { background: none; border: none; color: var(--primary); font-size: 1.2em; cursor: pointer; }
+    footer { text-align: center; padding: 1em; font-size: 0.9em; }
   </style>
 </head>
 <body>
-  <div class="background"></div>
+  <canvas id="particle-canvas"></canvas>
   <header>KIRONIGAMES</header>
   <nav>
     <a href="#">Home</a>
     <a href="#">The Echo Below</a>
     <a href="#">Store</a>
     <a href="#">Contact</a>
-    <div id="visitor-counter">Visitors: Loading...</div>
+    <div id="visitor-counter" style="color:var(--primary);"></div>
   </nav>
   <main>
     <div class="content-box">
-      <h1>Welcome to KironiGames</h1>
-      <p>Crafted in shadow, forged in mystery. Enter the cursed world of <strong>The Echo Below</strong> and shape your fate.</p>
+      <h1>Craft Your Destiny</h1>
+      <p>Enter the world of <strong>The Echo Below</strong> and hone your power.</p>
       <a href="#" class="button">Play Now</a>
-      <div class="donation-bar">
-        <strong>Please donate to bring top-tier games to you</strong>
-        <div id="donation-total">Total Donated: 0.00</div>
-        <div class="progress-container">
-          <div class="progress-fill" id="donation-fill"></div>
-        </div>
-        <a href="https://www.paypal.com/donate" target="_blank" class="button" style="margin-top: 1em;">Donate</a>
-      </div>
-      <div class="comment-section">
-        <h2>Comments</h2>
-        <div class="comment-input">
-          <textarea id="commentText" rows="3" placeholder="Write a comment..."></textarea>
-          <button onclick="addComment()">Post Comment</button>
-        </div>
-        <div id="commentsContainer"></div>
-      </div>
     </div>
   </main>
-  <footer>© 2025 KironiGames. Crafted by Layne Carpenter.</footer>
+  <section class="comment-section">
+    <h2>Comments</h2>
+    <div class="comment-input">
+      <textarea id="commentText" rows="3" placeholder="Your thoughts..."></textarea>
+      <button onclick="addComment()">Post</button>
+    </div>
+    <div id="commentsContainer"></div>
+  </section>
+  <footer>© 2025 KironiGames | Crafted by Layne Carpenter</footer>
   <script>
-    // Floating squares
-    const background = document.querySelector('.background');
-    for (let i = 0; i < 60; i++) {
-      const square = document.createElement('div');
-      square.classList.add('square');
-      const size = 10 + Math.random() * 30;
-      square.style.width = square.style.height = `${size}px`;
-      square.style.left = `${Math.random() * 100}vw`;
-      square.style.animationDuration = `${6 + Math.random() * 8}s`;
-      square.style.opacity = Math.random() * 0.3;
-      background.appendChild(square);
+    // Particles
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    resize(); window.addEventListener('resize', resize);
+    function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+    class Particle {
+      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.5; this.vy = (Math.random()-0.5)*0.5; this.size = Math.random()*2+1; }
+      update() { this.x += this.vx; this.y += this.vy; if(this.x<0||this.x>canvas.width) this.vx*=-1; if(this.y<0||this.y>canvas.height) this.vy*=-1; }
+      draw() { ctx.fillStyle = 'rgba(255,77,77,0.5)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
     }
+    for(let i=0;i<200;i++) particles.push(new Particle());
+    function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animate); }
+    animate();
     // Visitor Count
     fetch('https://api.countapi.xyz/update/kironi-games/visits/?amount=1')
-      .then(res => res.json())
-      .then(data => document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`)
-      .catch(() => document.getElementById('visitor-counter').innerText = "Visitors: ???");
-    // Donation bar
-    const goal = 10000.00, current = 0.00;
-    const percent = (current / goal) * 100;
-    document.getElementById("donation-total").innerText = `Total Donated: ${current.toFixed(2)}`;
-    document.getElementById("donation-fill").style.setProperty("--fill", `${percent}%`);
+      .then(res=>res.json()).then(d=>document.getElementById('visitor-counter').innerText=`Visitors: ${d.value}`)
+      .catch(()=>{});
     // Comments
-    let comments = JSON.parse(localStorage.getItem('comments') || '[]');
-    function renderComments() {
-      const container = document.getElementById('commentsContainer');
-      container.innerHTML = '';
-      comments.sort((a,b) => b.likes - a.likes);
-      comments.forEach((comment, index) => {
-        const div = document.createElement('div');
-        div.className = 'comment';
-        div.innerHTML = `<p>${comment.text}</p><button class="like-btn" onclick="likeComment(${index})">❤️ ${comment.likes}</button>`;
-        container.appendChild(div);
-      });
-    }
-    function addComment() {
-      const text = document.getElementById('commentText').value.trim();
-      if (text) { comments.push({text,likes:0}); localStorage.setItem('comments',JSON.stringify(comments)); document.getElementById('commentText').value=''; renderComments(); }
-    }
-    function likeComment(i) { comments[i].likes++; localStorage.setItem('comments',JSON.stringify(comments)); renderComments(); }
+    let comments = JSON.parse(localStorage.getItem('comments')||'[]');
+    function renderComments(){ const c=document.getElementById('commentsContainer');c.innerHTML='';comments.sort((a,b)=>b.likes-a.likes).forEach((com,i)=>{ const div=document.createElement('div'); div.className='comment'; div.innerHTML=`<span>${com.text}</span><button class="like-btn" onclick="likeComment(${i})">❤️ ${com.likes}</button>`; c.appendChild(div); }); }
+    function addComment(){ const t=document.getElementById('commentText'),v=t.value.trim(); if(v){comments.push({text:v,likes:0});localStorage.setItem('comments',JSON.stringify(comments));t.value='';renderComments();}};
+    function likeComment(i){comments[i].likes++;localStorage.setItem('comments',JSON.stringify(comments));renderComments();}
     renderComments();
   </script>
 </body>
