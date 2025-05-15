@@ -12,32 +12,14 @@
       --primary: #ff4d4d;
       --light: #f0f0f0;
       --accent: rgba(255,77,77,0.1);
-      --cursorX: 50%;
-      --cursorY: 50%;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      cursor: none;
       font-family: 'Inter', sans-serif;
       background: linear-gradient(120deg, var(--bg-dark), var(--bg-red));
       color: var(--light);
       overflow-x: hidden;
       line-height: 1.6;
-      position: relative;
-    }
-    /* Custom cursor */
-    body::after {
-      content: '';
-      position: fixed;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      pointer-events: none;
-      top: var(--cursorY);
-      left: var(--cursorX);
-      transform: translate(-50%, -50%);
-      transition: transform 0.05s ease-out;
-      z-index: 1000;
     }
     .background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
     .square { position: absolute; background: var(--accent); box-shadow: 0 0 8px rgba(255,0,0,0.15); animation: float 12s infinite ease-in-out; }
@@ -55,7 +37,10 @@
     }
     nav {
       background: rgba(31,10,10,0.85);
-      display: flex; justify-content: center; align-items: center; gap: 1.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5em;
       padding: 1em 2em;
       backdrop-filter: blur(6px);
     }
@@ -68,7 +53,11 @@
     }
     nav a::after {
       content: '';
-      position: absolute; bottom: 0; left: 50%; width: 0; height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
       background: var(--primary);
       transition: width 0.3s, left 0.3s;
     }
@@ -114,7 +103,11 @@
     }
     .button::after {
       content: '';
-      position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
       background: rgba(255,255,255,0.3);
       border-radius: 50%;
       transform: translate(-50%, -50%);
@@ -152,16 +145,133 @@
     }
     .comment-section h2::after {
       content: '';
-      position: absolute; bottom: -5px; left: 0; width: 50px; height: 3px;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
       background: var(--primary);
     }
     .comment-input textarea {
-      width: 100%; padding: 1em; border-radius: 12px; border: none;
-      resize: vertical; font-family: 'Inter', sans-serif;
-      background: rgba(255,255,255,0.15); color: #fff;
+      width: 100%;
+      padding: 1em;
+      border-radius: 12px;
+      border: none;
+      resize: vertical;
+      font-family: 'Inter', sans-serif;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
       transition: background 0.3s, transform 0.2s;
     }
     .comment-input textarea:focus { background: rgba(255,255,255,0.25); outline: none; transform: scale(1.02); }
     .comment-input button {
-      padding: 0.8em 1.5em; background: var(--primary); border: none;
-      border-radius: 12px; color: #
+      padding: 0.8em 1.5em;
+      background: var(--primary);
+      border: none;
+      border-radius: 12px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.7em;
+      transition: transform 0.2s;
+    }
+    .comment-input button:hover { transform: scale(1.05); }
+    #commentsContainer { max-height: 300px; overflow-y: auto; padding-right: 0.5em; }
+    #commentsContainer::-webkit-scrollbar { width: 6px; }
+    #commentsContainer::-webkit-scrollbar-thumb { background-color: rgba(255,77,77,0.4); border-radius: 3px; }
+    .comment {
+      background: rgba(255,77,77,0.1);
+      padding: 1em;
+      border-radius: 10px;
+      margin-bottom: 1em;
+      position: relative;
+      color: #f0f0f0;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .like-btn { background: none; border: none; color: var(--primary); cursor: pointer; font-weight: bold; position: absolute; right: 1em; top: 1em; transition: transform 0.2s; }
+    .like-btn:hover { transform: scale(1.2); }
+    footer { background-color: rgba(26,0,0,0.8); color: #888; text-align: center; padding: 1em; margin-top: 5em; backdrop-filter: blur(5px); }
+    @media (max-width: 600px) { header { font-size: 2em; } .content-box { padding: 2em 1.5em; } nav { flex-direction: column; gap: 0.5em; } #visitor-counter { margin-top: 0.5em; } }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <header>KIRONIGAMES</header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">The Echo Below</a>
+    <a href="#">Store</a>
+    <a href="#">Contact</a>
+    <div id="visitor-counter">Visitors: Loading...</div>
+  </nav>
+  <main>
+    <div class="content-box">
+      <h1>Welcome to KironiGames</h1>
+      <p>Crafted in shadow, forged in mystery. Enter the cursed world of <strong>The Echo Below</strong> and shape your fate.</p>
+      <a href="#" class="button">Play Now</a>
+      <div class="donation-bar">
+        <strong>Please donate to bring top-tier games to you</strong>
+        <div id="donation-total">Total Donated: 0.00</div>
+        <div class="progress-container">
+          <div class="progress-fill" id="donation-fill"></div>
+        </div>
+        <a href="https://www.paypal.com/donate" target="_blank" class="button" style="margin-top: 1em;">Donate</a>
+      </div>
+      <div class="comment-section">
+        <h2>Comments</h2>
+        <div class="comment-input">
+          <textarea id="commentText" rows="3" placeholder="Write a comment..."></textarea>
+          <button onclick="addComment()">Post Comment</button>
+        </div>
+        <div id="commentsContainer"></div>
+      </div>
+    </div>
+  </main>
+  <footer>© 2025 KironiGames. Crafted by Layne Carpenter.</footer>
+  <script>
+    // Floating squares
+    const background = document.querySelector('.background');
+    for (let i = 0; i < 60; i++) {
+      const square = document.createElement('div');
+      square.classList.add('square');
+      const size = 10 + Math.random() * 30;
+      square.style.width = square.style.height = `${size}px`;
+      square.style.left = `${Math.random() * 100}vw`;
+      square.style.animationDuration = `${6 + Math.random() * 8}s`;
+      square.style.opacity = Math.random() * 0.3;
+      background.appendChild(square);
+    }
+    // Visitor Count
+    fetch('https://api.countapi.xyz/update/kironi-games/visits/?amount=1')
+      .then(res => res.json())
+      .then(data => document.getElementById('visitor-counter').innerText = `Visitors: ${data.value}`)
+      .catch(() => document.getElementById('visitor-counter').innerText = "Visitors: ???");
+    // Donation bar
+    const goal = 10000.00, current = 0.00;
+    const percent = (current / goal) * 100;
+    document.getElementById("donation-total").innerText = `Total Donated: ${current.toFixed(2)}`;
+    document.getElementById("donation-fill").style.setProperty("--fill", `${percent}%`);
+    // Comments
+    let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+    function renderComments() {
+      const container = document.getElementById('commentsContainer');
+      container.innerHTML = '';
+      comments.sort((a,b) => b.likes - a.likes);
+      comments.forEach((comment, index) => {
+        const div = document.createElement('div');
+        div.className = 'comment';
+        div.innerHTML = `<p>${comment.text}</p><button class="like-btn" onclick="likeComment(${index})">❤️ ${comment.likes}</button>`;
+        container.appendChild(div);
+      });
+    }
+    function addComment() {
+      const text = document.getElementById('commentText').value.trim();
+      if (text) { comments.push({text,likes:0}); localStorage.setItem('comments',JSON.stringify(comments)); document.getElementById('commentText').value=''; renderComments(); }
+    }
+    function likeComment(i) { comments[i].likes++; localStorage.setItem('comments',JSON.stringify(comments)); renderComments(); }
+    renderComments();
+  </script>
+</body>
+</html>
